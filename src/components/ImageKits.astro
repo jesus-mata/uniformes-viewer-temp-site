@@ -1,0 +1,12 @@
+---
+import Card from "./Card.astro";
+
+// imports all files that end with `.md` in `./src/pages/post/`
+const images = await Astro.glob('../../public/images/*.jpg'); 
+---
+<!-- Renders an <article> for the first 5 blog posts -->
+<div>
+{images.map((img) => (
+  <Card src={img.default.replace("/public","")} title={img.default.replace("/public/images/IMG-20230106-WA0","")}></Card>
+))}
+</div>
