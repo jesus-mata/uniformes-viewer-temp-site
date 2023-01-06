@@ -11,7 +11,7 @@ const images = await Astro.glob("../../public/images/*.jpg");
 			Visor de uniformes <span class="text-gradient">Chuy FC</span>
 		</h1>
 		<p class="instructions">
-			Pagina temoral para ver los uniformes para el equipo.<br />
+			Pagina temoral para ver los uniformes para el equipo por que el proveedor mando mas de 100 imagenes.<br />
 			Da <strong>click</strong> en la imagen para verla en tamaño orginal.
 		</p>
 		<ul role="list" class="link-card-grid">
@@ -19,10 +19,7 @@ const images = await Astro.glob("../../public/images/*.jpg");
 				images.map((img) => (
 					<Card
 						src={img.default.replace("/public", "")}
-						title={img.default.replace(
-							"/public/images/IMG-20230106-WA0",
-							""
-						)}
+						title={img.default.substring(img.default.indexOf("IMG-20230106-WA0")+16).split(".")[0]}
 					/>
 				))
 			}
